@@ -1,5 +1,6 @@
 package Threads;
 
+import UI.ProgressBar;
 import UI.Window;
 
 public class SimpleThread extends Thread{
@@ -15,25 +16,24 @@ public class SimpleThread extends Thread{
 	}
 
 	public static void main(String[] args) {
-		int alta=100;
-		int baja=0;
-		
 		//Instanciando Window
-		Window W1 = new Window();
+		Window 		W1 = new Window();
+		ProgressBar	pb = new ProgressBar();
+		
+		pb.setVisible(true);
+		
+		//W1.setVisible(true);
 		
 		
-		W1.setVisible(true);
-		
-		
-		SimpleThread h1 =new SimpleThread("Juan");
-		SimpleThread h2 =new SimpleThread("María");
+		SimpleThread	h1 		=new SimpleThread("Juan");
+		SimpleThread	h2 		=new SimpleThread("María");
 		
 		//implementar priority con yeld
 		h1.setPriority(MAX_PRIORITY);
 		h2.setPriority(MIN_PRIORITY);
 		
-		h1.start();
-		h2.start();
+//		h1.start();
+//		h2.start();
 		
 		
 	}
