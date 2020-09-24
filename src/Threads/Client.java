@@ -2,12 +2,15 @@ package Threads;
 
 public class Client {
 	
-	private String nombre;
+	private String	nombre;
 	private int		edad;
-	public Client(String nombre, int edad) {
+	private int 	tiempo;
+	
+	public Client(String nombre, int edad,int tiempo) {
 		super();
-		this.nombre = nombre;
-		this.edad = edad;
+		this.nombre	= nombre;
+		this.edad	= edad;
+		this.tiempo	= tiempo;
 	}
 	public String getNombre() {
 		return nombre;
@@ -21,10 +24,17 @@ public class Client {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+	public int getTiempo() {
+		return tiempo;
+	}
+	public void setTiempo(int tiempo) {
+		this.tiempo = tiempo;
+	}
+	
 	
 	public void PrintData() {
-		System.out.println("Nombre: "+nombre);
-		System.out.println("Edad: "+edad);
+		System.out.println("Nombre: "	+nombre);
+		System.out.println("Edad: "		+edad);
 	}
 
 }

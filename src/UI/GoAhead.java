@@ -3,6 +3,8 @@ package UI;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
+import Threads.Client;
+
 public class GoAhead implements Runnable{
 
 	JProgressBar	barra;
@@ -22,7 +24,7 @@ public class GoAhead implements Runnable{
 			this.getBarra().setValue(i);
 			if (this.getBarra().getValue() == 100)
             {
-                JOptionPane.showMessageDialog(new ProgressBar(), "Ha terminado el Jbar No: "+num_bar);
+                JOptionPane.showMessageDialog(new ProgressBar(null), "Terminó  de atender cliente N°: "+num_bar);
             }   
 		}
 		num_bar++;

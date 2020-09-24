@@ -1,5 +1,8 @@
 package UI;
 
+import Threads.Client;
+
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,9 +10,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class ProgressBar extends JFrame{
 	
@@ -24,12 +25,15 @@ public class ProgressBar extends JFrame{
     private JLabel			jLabel2;
     private JLabel			jLabel3;
 	
-    public ProgressBar() {
-		initComponents();
+    public ProgressBar(Client cli) {
+    	//Definiendo título de la ventana
+		setTitle("Práctica 03 Threads & UI");
+		
+		initComponents(cli);
 		
 	}
 	
-	private void initComponents() {
+	private void initComponents(Client cli) {
 
         b1		= new JButton();
         b2		= new JButton();
@@ -41,33 +45,33 @@ public class ProgressBar extends JFrame{
         jLabel1	= new JLabel();
         jLabel2	= new JLabel();
         jLabel3	= new JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         jLabel1.setText("Ventanilla01");
         jLabel2.setText("Ventanilla02");
         jLabel3.setText("Ventanilla03");
 
-        b1.setText("Iniciar 1");
+        b1.setText("Start");
         b1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	BTN_Action1(evt);
+            public void actionPerformed(ActionEvent evt1) {
+            	BTN_Action1(evt1, cli);
             }
         });
         jbar1.setStringPainted(true);
         
-        b2.setText("Iniciar 3");
+        b2.setText("Reboot");
         b2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	BTN_Action2(evt);
+            public void actionPerformed(ActionEvent evt2) {
+            	BTN_Action2(evt2);
             }
         });
         jbar2.setStringPainted(true);
         
-        b3.setText("Iniciar 2");
+        b3.setText("Stop");
         b3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	BTN_Action3(evt);
+            public void actionPerformed(ActionEvent evt3) {
+            	BTN_Action3(evt3);
             }
         });
         jbar3.setStringPainted(true);
@@ -133,26 +137,26 @@ public class ProgressBar extends JFrame{
         pack();
     }
 	
-	private void BTN_Action1(ActionEvent event) {
+	private void BTN_Action1(ActionEvent event1, Client cli) {
 		GoAhead ga1 = new GoAhead();
 		ga1.setBarra(jbar1);
 		
-		Thread hilo = new Thread(ga1);
-		hilo.start();
+		Thread hilo1 = new Thread(ga1);
+		hilo1.start();
 	}
-	private void BTN_Action2(ActionEvent event) {
+	private void BTN_Action2(ActionEvent event2) {
 		GoAhead ga2 = new GoAhead();
 		ga2.setBarra(jbar2);
 		
-		Thread hilo = new Thread(ga2);
-		hilo.start();
+		Thread hilo2 = new Thread(ga2);
+		hilo2.start();
 	}
-	private void BTN_Action3(ActionEvent event) {
+	private void BTN_Action3(ActionEvent event3) {
 		GoAhead ga3 = new GoAhead();
 		ga3.setBarra(jbar3);
 		
-		Thread hilo = new Thread(ga3);
-		hilo.start();
+		Thread hilo3 = new Thread(ga3);
+		hilo3.start();
 	}
 	
 	
